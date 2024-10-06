@@ -1,0 +1,704 @@
+:root {
+  --background: #a8e6cf;
+  --text: #e49e9e;
+  --buttons: #e1bee7;
+  --input-field: #e0e0e0;
+  --panel2: rgb(255, 248, 252);
+  --text2: #e743a0;
+  /* --board-size: 345; */
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, sans-serif, inter;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+  position: relative;
+}
+
+/* Entry Panel */
+.entry-logo {
+  color: var(--text);
+  font-size: 3rem;
+  font-weight: 700;
+  -webkit-text-stroke: #717171 0.8px;
+}
+
+.entry-panel {
+  display: none;
+  justify-content: center;
+  background-size: contain;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("home-background.png");
+}
+
+.entry-panel .main,
+.entry-panel .main .input-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.entry-panel .main .input-container,
+form {
+  justify-content: center;
+  height: fit-content;
+  padding: 50px;
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: clamp(400px, 80%, 600px);
+}
+
+/* Input Fields and Buttons */
+input[type="text"],
+.user-btn {
+  background-color: var(--input-field);
+  color: #5c5c5c;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.3em;
+  font-weight: 700;
+  outline: none;
+}
+
+.user-btn {
+  background-image: linear-gradient(
+    45deg,
+    var(--buttons),
+    var(--text),
+    var(--buttons)
+  );
+  padding: 10px 40px;
+  font-size: 1.1em;
+  width: auto;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Flash Message */
+#flash-message {
+  top: -200%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 10px 15px;
+  width: clamp(90%, 500px, 80%);
+  border-radius: 3px;
+  transition: 0.2s;
+  z-index: 100;
+}
+
+.flash-close {
+  cursor: pointer;
+  border: none;
+  font-size: 1.2em;
+  font-weight: 800;
+  padding: 0 10px;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+/* Home Panel */
+.home-panel {
+  display: none;
+  height: 100%;
+  width: 100%;
+  padding: 5% 5%;
+}
+
+.home-logo {
+  font-family: Luckiest Guy;
+  color: var(--text2);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.home-panel .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #ffebf7;
+  border-radius: 7px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.home-panel .main nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.home-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.home-btns button,.home-btns a {
+  text-decoration: none;
+  padding: 1px 5px;
+  border: 2px solid #e743a0;
+  border-radius: 3px;
+  background-color: transparent;
+  font-family: Impact, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 1.5px;
+  color: #e743a0;
+  font-size: 1.4em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-panel .left {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  * {
+    cursor: default;
+  }
+  .home-panel .left {
+    height: clamp(100px, 60vh, 500px);
+  }
+
+  .home-panel .main .home-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: fit-content;
+  }
+}
+
+/* Custom Select */
+.custom-select {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+
+.selected,
+.home-start-btn .start-btn {
+  font-weight: 700;
+  margin: auto;
+  width: clamp(200px, 20vw, 300px);
+  font-size: 1.2em;
+  background-color: #e743a0;
+  color: white;
+  border: 2px solid #ff99cc;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-start-btn .start-btn {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected span {
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+.options {
+  border: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  display: none;
+  background-color: transparent;
+  margin: auto;
+  width: clamp(200px, 20vw, 300px);
+  transition: all 0.3s ease;
+}
+
+.options.active {
+  display: block;
+}
+
+.option {
+  margin-top: 3px;
+  padding: 10px 0;
+  color: white;
+  cursor: pointer;
+  background-color: #e743a0;
+  border-radius: 50%;
+  border: 2px solid #ff99cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: background-color 0.1s ease;
+}
+
+.option:hover,
+.selected:hover {
+  background-color: #811050;
+}
+
+.selected::after {
+  content: "▼";
+}
+
+/* Home Options */
+.home-options {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.home-options .right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--text2);
+  padding: 0 20px 20px 0;
+}
+
+.home-options .right div {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 2px solid var(--text2);
+  border-radius: 6px;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+/* Game Panel */
+.game-panel {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: var(--background);
+  padding: 20px;
+}
+
+.game-panel .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #eedbf2;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.game-panel .main nav {
+  width: 100%;
+  display: flex;
+  padding: 10px 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.game-panel .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.game-panel .main nav .score,
+.chance,
+.hit,
+.username-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-panel .main nav .score span {
+  font-size: 1.2em;
+  color: var(--text2);
+  font-family: Luckiest Guy, sans-serif;
+}
+
+.chance span,
+.hit span,
+.username-container span {
+  font-size: 1.2em;
+  color: var(--text2);
+  font-family: sans-serif;
+  background-color: #fff;
+  padding: 2px 20px;
+  border-radius: 3px;
+  font-weight: 700;
+  border: 2px solid var(--text2);
+}
+
+.username-container span {
+  border: none;
+  background-color: transparent;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 1.2em;
+  text-decoration: 3px underline;
+}
+
+.game-panel .main .controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.game-panel .main .controls button {
+  font-weight: 700;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #d64b9a;
+}
+
+/* Timer */
+.game-panel .main .time {
+  width: 80%;
+  height: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--text2, #000);
+  font-family: "Luckiest Guy", sans-serif;
+  background-color: rgb(241, 211, 211);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-panel .main .time .progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #d64b9a;
+  border-radius: 5px;
+  transition: all 1s linear;
+}
+
+/* Game Board */
+.game-board {
+  width: 100%;
+  height: 80%;
+  background-color: #ef79bb;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+.game-board .board {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.game-board .board .cell {
+  width: calc((100% / var(--cells-per-row)) - 6px);
+  height: calc((100% / var(--cells-per-column)) - 5px);
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d64b9a;
+  border: 2px solid #d64b9a;
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 3px #d64b9a98;
+  cursor: pointer;
+}
+
+.game-board .board .cell:hover {
+  background-color: #e3409c57;
+  box-shadow: 0 0 10px 3px #d64b9a;
+}
+
+/* Success and Error Messages */
+.success {
+  background-color: rgb(227, 255, 235);
+  color: rgb(78, 195, 88);
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.success-close {
+  background-color: rgb(22, 182, 67);
+  color: rgb(213, 255, 216);
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.success-close:hover {
+  background-color: rgb(15, 110, 23);
+}
+
+.error {
+  background-color: rgb(255, 235, 235);
+  color: rgb(226, 78, 78);
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.error-close {
+  background-color: rgb(210, 25, 25);
+  color: rgb(255, 204, 204);
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-close:hover {
+  background-color: rgb(110, 23, 23);
+}
+
+/* Game Over Panel */
+.game-over {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.game-over .main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ffe9fb;
+  border-radius: 7px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.game-over .main h1 {
+  color: #d64b9a;
+  font-family: Luckiest Guy, poppins, sans-serif;
+  font-weight: 500;
+}
+
+.game-over-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 5%;
+}
+
+.game-over-btns button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: 700;
+  font-family: poppins, sans-serif;
+  border: none;
+  outline: none;
+  background: whitesmoke;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+}
+
+.game-over-btns button:hover {
+  background-color: #717171;
+}
+
+.scores {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  margin-top: 50px;
+  font-size: 1.5em;
+  color: white;
+}
+
+.game-panel .main .header nav .scores {
+  flex-direction: row;
+  margin: 0;
+}
+
+.high-score-container,
+.current-score-container {
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #d64b9a;
+}
+
+.game-panel .main .header nav .scores .high-score-container,
+.game-panel .main .header nav .scores .current-score-container {
+  padding: 5px;
+  font-size: 0.6em;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes broken {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+.shake {
+  background-color: #380321;
+  animation: shake 0.5s;
+}
+
+.broken {
+  background-color: #a5106a;
+  animation: broken 0.5s;
+}
+.ready-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, 0.607));
+}
+.ready-panel .main {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  height: 60%;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.ready-panel .main .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.ready-panel .main .info {
+  padding: 20px;
+}
+.ready-panel .main .info h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #a80561;
+  text-decoration: underline;
+}
+.ready-panel .main .info p {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #981961;
+}
+.ready-panel .main .ready-btns button {
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background: whitesmoke;
+  color: #a80561;
+  box-shadow: 0 2px 10px rgba(82, 69, 75, 0.5);
+}

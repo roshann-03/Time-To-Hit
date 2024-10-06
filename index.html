@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="flash-message" class="flash-message">
+      <div class="flash-text">Please enter a valid name</div>
+      <button class="flash-close" id="flash-close">
+        <i class="ri-close-large-line"></i>
+      </button>
+    </div>
+
+    <div id="entry-panel" class="entry-panel">
+      <div class="main">
+        <div class="entry-logo">Time to hit</div>
+        <div class="input-container">
+          <form action="" class="user-form" id="userForm">
+            <input
+              type="text"
+              placeholder="Enter your name..."
+              class="user-input user-input"
+              id="userInput"
+            />
+            <button type="submit" class="user-btn buttons">Enter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-panel" id="home-panel">
+      <div class="main">
+        <nav>
+          <div class="home-logo">Time to hit</div>
+          <div class="home-btns">
+            <button class="home-btn buttons">Home</button>
+            <a href="about.html" class="about-btn buttons about-link">About</a>
+            <button class="logout-btn buttons">Logout</button>
+            <button class="delete-account-btn buttons">Delete Account</button>
+          </div>
+        </nav>
+
+        <div class="home-options">
+          <div class="left">
+            <div class="home-start-btn">
+              <button class="start-btn buttons" id="start-btn" data-value="">
+                Start Game
+              </button>
+            </div>
+            <div class="custom-select">
+              <div class="selected buttons"><span>Select Difficulty</span></div>
+              <div class="options buttons">
+                <div class="option buttons" data-value="easy">Easy</div>
+                <div class="option buttons" data-value="medium">Medium</div>
+                <div class="option buttons" data-value="hard">Hard</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="username-box">
+              Hello, <span class="username">John Deo</span>
+            </div>
+            <div class="score">
+              High Score:&nbsp;
+              <span class="high-score">00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-panel" id="game-panel">
+      <div class="main">
+        <div class="header">
+          <nav>
+            <div class="scores">
+              <div class="current-score-container">
+                <span>Current Score:</span>
+                <span class="current-score">00</span>
+              </div>
+
+              <div class="high-score-container">
+                <span>High Score:</span>
+                <span class="high-score">00</span>
+              </div>
+            </div>
+            <div class="chance"><span>Chances Left: 3</span></div>
+            <div class="hit"><span>Hit: 1</span></div>
+            <div class="controls">
+              <div class="username-container">
+                <span class="username">John Deo</span>
+              </div>
+              <button class="play-again-btn buttons">Restart</button>
+              <button class="exit-btn buttons">Exit</button>
+            </div>
+          </nav>
+          <div class="time">
+            <div class="progress"></div>
+          </div>
+        </div>
+
+        <div class="game-board">
+          <div class="board"></div>
+        </div>
+        <div class="game-over"></div>
+      </div>
+
+      <div class="ready-panel" id="ready-panel">
+        <div class="main">
+          <div class="info">
+            <h1>Game Rules</h1>
+            <p>
+              Are you ready? You have only 3 chances. Hit the number in sequence
+              from 1 to n shown in the above Hit box. You have only limited time
+              to hit each number.
+            </p>
+          </div>
+          <div class="ready-btns">
+            <button class="ready-btn buttons" id="ready-btn">Ready</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-over" id="game-over">
+      <div class="main">
+        <h1 class="game-over-text">Game Over</h1>
+        <div class="container">
+          <div class="scores">
+            <div class="current-score-container">
+              <span>Current Score:</span> <span class="current-score">00</span>
+            </div>
+
+            <div class="high-score-container">
+              <span>High Score:</span>
+              <span class="high-score">00</span>
+            </div>
+          </div>
+          <div class="game-over-btns">
+            <button class="play-again-btn buttons">Play Again</button>
+            <button class="exit-btn buttons">Exit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="utils.js"></script>
+  </body>
+</html>
